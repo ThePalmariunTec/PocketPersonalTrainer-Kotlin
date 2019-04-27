@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="413dp"
+            android:layout_height="303dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="18dp" app:layout_constraintBottom_toTopOf="@+id/recyclerView"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/controlerMenu"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <ImageButton
+                android:id="@+id/btnCamera"
+                style="@style/Widget.AppCompat.ImageButton"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
+                android:contentDescription="@string/camer"
+                android:cropToPadding="false"
+                android:src="android:drawable/ic_menu_c"
+                android:text="@string/menu_treino"
+                android:tint="@color/colorSecundary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@android:drawable/ic_menu_camera" app:layout_constraintVertical_bias="1.0"
+                android:scaleType="center"/>
+
+        <ImageButton
+                android:id="@+id/btnAddTreino"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="223dp"
+                android:layout_height="58dp"
+
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="249dp"
+                android:layout_marginBottom="8dp"
+                android:adjustViewBounds="true"
+                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTintMode="multiply"
+                android:contentDescription="@string/menu_treino"
+                android:cropToPadding="false"
+                android:src="@drawable/ic_treino_barbell"
+                android:text="@string/menu_treino"
+                android:tint="@color/colorSecundary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_treino_barbell" app:layout_constraintHorizontal_bias="0.0"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="400dp"
+            android:layout_height="328dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/controlerMenu" android:id="@+id/recyclerView"
+            app:layout_constraintHorizontal_bias="0.454"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

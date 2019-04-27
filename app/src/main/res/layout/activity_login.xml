@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/tela_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:context=".LoginActivity"
+        tools:layout_editor_absoluteY="25dp">
+
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="230dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="48dp"
+            android:text="@string/app_name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoApp"/>
+
+    <Button
+            android:id="@+id/btnEntrar"
+            android:layout_width="336dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/btn_entrar"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtPassWd"/>
+
+    <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="343dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="@string/txt_email"
+            android:inputType="textEmailAddress"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.615"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+    <EditText
+            android:id="@+id/edtPassWd"
+            android:layout_width="343dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="8dp"
+            android:ems="10"
+            android:hint="@string/txt_passwd"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+            tools:targetApi="o" app:layout_constraintHorizontal_bias="0.615"/>
+
+    <TextView
+            android:id="@+id/txtViewCadastrar"
+            android:layout_width="86dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="81dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/TxtView_cad"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:typeface="normal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"/>
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="99dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="68dp"
+            android:text="@string/TxtView_redfPwd"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:typeface="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+    />
+
+
+    <ImageView
+            android:id="@+id/logoApp"
+            android:layout_width="289dp"
+            android:layout_height="226dp"
+            android:layout_marginTop="48dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/icone_app_foreground"
+            app:layout_constraintHorizontal_bias="0.535"/>
+    <ProgressBar
+            android:id="@+id/entrando"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="731dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="411dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="411dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

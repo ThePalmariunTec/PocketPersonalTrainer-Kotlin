@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_entrar">Log in</string>
+    <string name="TxtView_cad">Sign in</string>
+    <string name="txt_passwd">Password</string>
+    <string name="tbl_treino">Exercise</string>
+    <string name="menu_treino">Add Exercises</string>
+    <string name="tbl_evolution">Evolution</string>
+    <string name="tbl_exemplos">Examples</string>
+    <string name="tbl_perfil">Profile</string>
+    <string name="TxtView_redfPwd">Reset Password</string>
+    <string name="txt_peso">Weight</string>
+    <string name="txt_altura">Height</string>
+    <string name="txt_autNomeGyn">Gym</string>
+    <string name="lbl_photoPerfil">Profile picture</string>
+    <string name="txt_fullName">Full name</string>
+    <string name="txt_confPasswd">Confirm password</string>
+    <string name="lbl_passwdNotValid">invalid password</string>
+    <string name="lbl_passwdValid">Allowed password</string>
+    <string name="storage_permission_rationale_title">This app nedd permission to external storage</string>
+    <string name="storage_permition_rationale_message">To take a picture, you need allow this app to use the camera</string>
+    <string name="storage_permission_denied_message">Storage permission is needed to take picture</string>
+    <string name="picture">Take pictures</string>
+    <string name="description_info">Info</string>
+    <string name="request_permission">This app need of the permission to use the camera</string>
+    <string name="camera_button">Capture button</string>
+    <string name="camera_switch">Rotate camera</string>
+    <string name="thumbnail_button">Show images</string>
+    <string name="foto">Photo</string>
+    <string name="edtTelefone">Phone</string>
+</resources>
