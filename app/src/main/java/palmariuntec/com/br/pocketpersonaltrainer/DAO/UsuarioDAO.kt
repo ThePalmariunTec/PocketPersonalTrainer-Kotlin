@@ -11,10 +11,10 @@ import palmariuntec.com.br.pocketpersonaltrainer.entidade.Usuario
 interface UsuarioDAO {
 
     @Query("SELECT * FROM usuario WHERE id = :id")
-    fun getById(id: Long) : Usuario?
+    fun getById(id: Long) : Usuario
 
     @Query("SELECT * FROM usuario WHERE email = :email AND senha = :senha")
-    fun getByEmailAndSenha(email: String, senha: String) : Usuario?
+    fun getByEmailAndSenha(email: String, senha: String) : Usuario
 
     @Query("SELECT * FROM usuario")
     fun findALL(): List<Usuario>

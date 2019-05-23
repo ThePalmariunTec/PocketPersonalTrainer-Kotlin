@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class PageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class PageAdapter(fm: FragmentManager, behavior: Int) : FragmentPagerAdapter(fm, behavior) {
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
@@ -14,7 +14,7 @@ class PageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
             1 -> PerfilUsuario()
             else -> {
-                return SobreTreinos()
+                return ListaExercicios()
             }
         }
     }
@@ -27,7 +27,7 @@ class PageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             0 -> "Treinos do Dia"
             1 -> "Meu Perfil"
             else -> {
-                return "Sobre Treinos"
+                return "Lista de exercícios"
             }
         }
     }

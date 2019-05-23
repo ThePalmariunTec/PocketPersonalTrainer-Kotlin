@@ -8,9 +8,11 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import java.util.*
 
-@Entity(tableName = "exercicio_usuario", foreignKeys = arrayOf(
-                                        ForeignKey(entity = Usuario::class, parentColumns = arrayOf("id"), childColumns = arrayOf("usuario_id")),
-                                        ForeignKey(entity = Exercicios::class, parentColumns = arrayOf("id"), childColumns = arrayOf("exercicio_id"))))
+@Entity(tableName = "exercicio_usuario", foreignKeys = [
+                                                        ForeignKey(entity = Usuario::class, parentColumns = arrayOf("id"), childColumns = arrayOf("usuario_id")),
+                                                        ForeignKey(entity = Exercicios::class, parentColumns = arrayOf("id"), childColumns = arrayOf("exercicio_id"))
+                                                       ])
+
 class ExercicioUsuario(): Parcelable {
 
     private var dtAgedado: Date? = null

@@ -9,7 +9,7 @@ import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "exercicios")
-class Exercicios(): Parcelable {
+class Exercicios: Parcelable {
 
     @PrimaryKey
     var id: Long = 0
@@ -21,12 +21,19 @@ class Exercicios(): Parcelable {
     @Ignore
     var image: Bitmap? = null
 
-    constructor(parcel: Parcel) : this() {
+    constructor(nome: String, desc: String){
+       this.nome = nome
+        this.desc = desc
+    }
+
+    constructor(parcel: Parcel) {
         id = parcel.readLong()
         nome = parcel.readString()
         desc = parcel.readString()
         image = parcel.readParcelable(Bitmap::class.java.classLoader)
     }
+
+
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(id)

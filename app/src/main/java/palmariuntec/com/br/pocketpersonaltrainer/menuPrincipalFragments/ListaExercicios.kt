@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import palmariuntec.com.br.pocketpersonaltrainer.ListViewAdapter
 import palmariuntec.com.br.pocketpersonaltrainer.R
+import palmariuntec.com.br.pocketpersonaltrainer.entidade.Exercicios
 
-class SobreTreinos : Fragment() {
+class ListaExercicios : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre_exercicio, container, false)
+        return inflater.inflate(R.layout.fragment_listexercicios, container, false)
     }
+
+
 }

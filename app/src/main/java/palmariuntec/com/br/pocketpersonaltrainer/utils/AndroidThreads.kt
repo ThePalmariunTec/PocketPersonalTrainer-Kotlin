@@ -1,6 +1,7 @@
 package palmariuntec.com.br.pocketpersonaltrainer.utils
 
 import android.graphics.Bitmap
+import palmariuntec.com.br.pocketpersonaltrainer.database.DatabaseManager
 import palmariuntec.com.br.pocketpersonaltrainer.database.services.AcademiaService
 import palmariuntec.com.br.pocketpersonaltrainer.database.services.ExercicioService
 import palmariuntec.com.br.pocketpersonaltrainer.entidade.*
@@ -53,4 +54,26 @@ object AndroidThreads
         return user
     }
 
+
+    fun getExerciciosRetrofit(): List<Exercicios>?{
+        var listExercicio: List<Exercicios>? = null
+        object :Thread(){
+            override fun run() {
+                val service = PocketPersonalTrainerRetrofit()
+                listExercicio = service.getTodosExercicios()
+            }
+        }.start()
+        return listExercicio
+    }
+
+    fun getExerciciosFromDB(): List<Exercicios>?{
+        var listExercicio: List<Exercicios>? = null
+        object :Thread(){
+            override fun run() {
+                val dao = DatabaseManager.getExercicioDAO()
+                listExercicio = dao.findAll()
+            }
+        }.start()
+        return listExercicio
+    }
 }

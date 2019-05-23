@@ -1,6 +1,4 @@
 package palmariuntec.com.br.pocketpersonaltrainer.database.services
-
-import android.provider.ContactsContract
 import palmariuntec.com.br.pocketpersonaltrainer.database.DatabaseManager
 import palmariuntec.com.br.pocketpersonaltrainer.entidade.Usuario
 

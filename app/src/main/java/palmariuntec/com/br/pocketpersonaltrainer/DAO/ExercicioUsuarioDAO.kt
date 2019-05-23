@@ -17,7 +17,8 @@ interface ExercicioUsuarioDAO {
     @Query("SELECT * FROM exercicio_usuario WHERE dtAgedado = :dtAgedado")
     fun findByDate(dtAgedado: Calendar): List<ExercicioUsuario>?
 
-    @Query("SELECT * FROM exercicio_usuario WHERE usuario_id")
+    @Query("SELECT * FROM exercicio_usuario WHERE usuario_id = :usuario_id")
+    fun findByUserId(usuario_id: Long): List<ExercicioUsuario>
 
     @Insert
     fun insert(exerciseUser: ExercicioUsuario)

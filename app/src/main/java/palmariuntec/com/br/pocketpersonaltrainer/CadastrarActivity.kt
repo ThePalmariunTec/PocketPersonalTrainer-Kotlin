@@ -19,19 +19,20 @@ import java.util.*
 
 
 class CadastrarActivity : AppCompatActivity() {
+
     var file: File? = null
-    val success = Toast.makeText(PocketPersonalTrainer.getInstance(), "Cadastrado com sucesso!", Toast.LENGTH_SHORT)
-    val failer = Toast.makeText(PocketPersonalTrainer.getInstance(), "Falha ao cadastrar!", Toast.LENGTH_SHORT)
+    var user = Usuario()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val context = this
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar)
 
         btnCadastrar.setOnClickListener {
             if (salvarDados()) {
-                success.show()
                 val intent = Intent(this, MenuPrincipalActivity::class.java)
+                intent.putExtra("email", user.email)
+                intent.putExtra("senha", user.senha)
+                intent.putExtra("fotoPerfil", file)
                 startActivity(intent)
             }
         }
@@ -39,8 +40,8 @@ class CadastrarActivity : AppCompatActivity() {
         fabtnTirarFoto.setOnClickListener {
             val file = getSdCardFile("foto.jpg")
             val it = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            val uri = FileProvider.getUriForFile(context,
-                context.applicationContext.packageName + ".provider", file)
+            val uri = FileProvider.getUriForFile(this,
+                this.applicationContext.packageName + ".provider", file)
             it.putExtra(MediaStore.EXTRA_OUTPUT, uri)
             startActivity(it)
         }
@@ -73,12 +74,10 @@ class CadastrarActivity : AppCompatActivity() {
         var isSaved = false
         if (edtNome.text.isBlank() || edtSenhaC.text.isBlank() ||
                 edtEmailCadastro.text.isBlank() || edtPeso.text.isBlank() ||
-                edtAltura.text.isBlank() || txtNomeAcademia.text.isBlank()) {
-            failer.show()
+                edtAltura.text.isBlank()) {
             edtNome.setFocusable(true)
         } else {
             validarSenha()
-            var user = Usuario()
             user.nome = edtNome.text.toString()
             user.email = edtEmailCadastro.text.toString()
             user.senha = edtSenhaC.text.toString()
@@ -90,6 +89,7 @@ class CadastrarActivity : AppCompatActivity() {
             user.dtVencimentoMensalidade = Date()
             if(file!!.exists() && file != null) {
                 user.URIfotoPerfil = file!!.absolutePath
+
             }
             val dao = DatabaseManager.getUsuarioDAO()
             dao.insert(user)
@@ -100,16 +100,11 @@ class CadastrarActivity : AppCompatActivity() {
 
     private fun validarSenha(): Boolean {
         var isValidSenha = false
-        txtView_validarPwd.text = ""
-        while (edtConfSenha.equals(edtSenhaC.text)) {
-            txtView_validarPwd.setText(R.string.lbl_passwdNotValid)
-            if (edtConfSenha.equals(edtSenhaC.text)) {
-                txtView_validarPwd.setText(R.string.lbl_passwdNotValid)
-                isValidSenha = true
-                break
-            }
-            isValidSenha = false
+        if(edtConfSenha.text.isNullOrEmpty() || edtSenhaC.text.isNullOrEmpty()){
+            if(edtConfSenha.text.equals(edtSenhaC.text))
+                isValidSenha = true;
         }
+
         return isValidSenha
     }
 

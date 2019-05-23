@@ -4,6 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.Ignore
+import java.io.File
 import java.util.*
 
 // entidade usuario: referente a tabela cliente no banco de dados
@@ -23,6 +25,9 @@ class Usuario() : Parcelable {
     var valorMensalidade = 00.00
     var dtVencimentoMensalidade: Date? = null
     var URIfotoPerfil = ""
+
+    @Ignore
+    val fotoPerfil: File? = null
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readLong()
