@@ -19,4 +19,10 @@ object UsuarioService {
         val user = dao.getByEmailAndSenha(email, senha)
         return user;
     }
+
+    fun getUser(): Usuario{
+        val dao = DatabaseManager.getUsuarioDAO()
+        val user = dao.findALL()
+        return  user
+    }
 }

@@ -18,23 +18,24 @@ class LoginActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.edtEmail)
         val senha = findViewById<EditText>(R.id.edtPassWd)
         val loading = findViewById<ProgressBar>(R.id.entrando)
+        val toast = Toast.makeText(PocketPersonalTrainer.getInstance().applicationContext, "Erro: Usuario não encontrado", Toast.LENGTH_SHORT)
         btnLogin.setOnClickListener {
             loading.visibility = ProgressBar.VISIBLE
             //val userRetrofit = AndroidThreads.taskGetUsuarioRetrofit(email.text.toString(), senha.text.toString())
             val userSQLite = UsuarioService.getUserByEmailSenha(email.text.toString(), senha.text.toString())
-            val toast = Toast.makeText(this, "Erro: Usuario não encontrado", Toast.LENGTH_SHORT)
             if(userSQLite != null){
                 loading.visibility = ProgressBar.GONE
-                val it = Intent(this, MenuPrincipalActivity::class.java)
-                it.putExtra("user", userSQLite)
-                startActivity(it)
+                val inte = Intent(this, MenuPrincipalActivity::class.java)
+                inte.putExtra("email", email.text.toString())
+                inte.putExtra("senha", senha.text.toString())
+                startActivity(inte)
             }else{
                 toast.show()
             }
         }
         signup.setOnClickListener {
-            val it = Intent(this, CadastrarActivity::class.java)
-            startActivity(it)
+            val inte = Intent(this, CadastrarActivity::class.java)
+            startActivity(inte)
         }
     }
 }

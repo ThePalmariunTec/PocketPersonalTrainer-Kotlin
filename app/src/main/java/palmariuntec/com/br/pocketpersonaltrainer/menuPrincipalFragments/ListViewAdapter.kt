@@ -1,12 +1,12 @@
-package palmariuntec.com.br.pocketpersonaltrainer
+package palmariuntec.com.br.pocketpersonaltrainer.menuPrincipalFragments
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
+import palmariuntec.com.br.pocketpersonaltrainer.R
 import palmariuntec.com.br.pocketpersonaltrainer.entidade.Exercicios
 
 class ListViewAdapter(var mCtx: Context, var resource:Int, var items:List<Exercicios>)

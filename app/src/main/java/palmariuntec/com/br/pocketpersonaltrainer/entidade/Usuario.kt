@@ -4,32 +4,35 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
 import androidx.room.Ignore
 import java.io.File
+import java.io.Serializable
 import java.util.*
 
 // entidade usuario: referente a tabela cliente no banco de dados
 @Entity(tableName = "usuario")
-class Usuario() : Parcelable {
-
+class Usuario: Parcelable {
     @PrimaryKey
     var id: Long = 0
-
+    @ColumnInfo(name = "name")
     var nome = ""
+    @ColumnInfo(name = "email")
     var email = ""
+    @ColumnInfo(name = "weidth")
     var peso = 00.00
+    @ColumnInfo(name = "heigth")
     var altura = 00.00
+    @ColumnInfo(name = "password")
     var senha = ""
+    @ColumnInfo(name = "phone")
     var telefone = ""
-    var status = 0
+    @ColumnInfo(name = "month_value")
     var valorMensalidade = 00.00
-    var dtVencimentoMensalidade: Date? = null
-    var URIfotoPerfil = ""
+    @ColumnInfo(name = "date_payoff")
+    var dtVencimentoMensalidade = Date()
 
-    @Ignore
-    val fotoPerfil: File? = null
-
-    constructor(parcel: Parcel) : this() {
+    constructor(parcel: Parcel): this() {
         id = parcel.readLong()
         nome = parcel.readString()
         email = parcel.readString()
@@ -37,15 +40,10 @@ class Usuario() : Parcelable {
         altura = parcel.readDouble()
         senha = parcel.readString()
         telefone = parcel.readString()
-        status = parcel.readInt()
         valorMensalidade = parcel.readDouble()
-        dtVencimentoMensalidade = parcel.readString() as Date
-        URIfotoPerfil = parcel.readString()
     }
 
-    override fun toString(): String {
-        return "Usuario{nome = '$nome'}"
-    }
+    constructor()
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeLong(id)
@@ -55,18 +53,11 @@ class Usuario() : Parcelable {
         parcel.writeDouble(altura)
         parcel.writeString(senha)
         parcel.writeString(telefone)
-        parcel.writeInt(status)
         parcel.writeDouble(valorMensalidade)
-        parcel.writeString(dtVencimentoMensalidade.toString())
-        parcel.writeString(URIfotoPerfil)
     }
 
     override fun describeContents(): Int {
         return 0
-    }
-
-    fun readFromParcel(parcel: Parcel){
-
     }
 
     companion object CREATOR : Parcelable.Creator<Usuario> {

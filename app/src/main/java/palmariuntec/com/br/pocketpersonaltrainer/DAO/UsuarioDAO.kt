@@ -17,7 +17,7 @@ interface UsuarioDAO {
     fun getByEmailAndSenha(email: String, senha: String) : Usuario
 
     @Query("SELECT * FROM usuario")
-    fun findALL(): List<Usuario>
+    fun findALL(): Usuario
 
     @Insert
     fun insert(user: Usuario)

@@ -12,7 +12,6 @@ class PocketPersonalTrainer: Application() {
     private  val TAG = "PocketPersonalTrainerApplication"
 
     override fun onCreate() {
-        AndroidThreads.taskUpdateSqlite()
         super.onCreate()
         appInstance = this
     }
@@ -28,7 +27,6 @@ class PocketPersonalTrainer: Application() {
     }
 
     override fun onTerminate() {
-        AndroidThreads.taskInsertUserToServerDb(DatabaseManager.getUsuarioDAO().getById(Usuario().id))
         super.onTerminate()
         Log.d(TAG, "PocketPersonalTrainer.onTerminate()")
     }

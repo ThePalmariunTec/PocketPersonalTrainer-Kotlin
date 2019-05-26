@@ -44,9 +44,9 @@ class PocketPersonalTrainerRetrofit {
         return response?:Response.error()
     }
 
-    fun getUsuarioByEmailSenha(email: String, senha:String): Usuario{
+    fun getUsuarioByEmailSenha(email: String, senha:String): Usuario?{
         val call = userService.loginApp(email,senha)
         val user = call.execute().body()
-        return user?:Usuario()
+        return user
     }
 }

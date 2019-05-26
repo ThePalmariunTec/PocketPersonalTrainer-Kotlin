@@ -8,12 +8,10 @@ import palmariuntec.com.br.pocketpersonaltrainer.DAO.ExercicioUsuarioDAO
 import palmariuntec.com.br.pocketpersonaltrainer.DAO.UsuarioDAO
 import palmariuntec.com.br.pocketpersonaltrainer.entidade.*
 
-@Database(entities = arrayOf(
-                             Academia::class ,
-                             Usuario::class ,
-                             Exercicios::class ,
-                             ExercicioUsuario::class) , version = 1)
+@Database(version = 1, entities = [Academia::class, Usuario::class, Exercicios::class, ExercicioUsuario::class])
+
 abstract class AcademiaDatabase : RoomDatabase() {
+
     abstract fun usuarioDAO(): UsuarioDAO
     abstract fun academiaDAO(): AcademiaDAO
     abstract fun exercicioDAO(): ExercicioDAO

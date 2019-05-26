@@ -14,7 +14,7 @@ object DatabaseManager {
         dbInstance = Room.databaseBuilder(
             appContext,
             AcademiaDatabase::class.java,
-            "academia.sqlite")
+            "pocketPersonalTrainerDb.sqlite")
             .build()
     }
     fun getUsuarioDAO(): UsuarioDAO{
